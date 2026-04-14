@@ -1,11 +1,11 @@
-module github.com/dexidp/dex
+module githubdex
 
 go 1.21
 
 require (
 	github.com/coreos/go-oidc/v3 v3.9.0
 	github.com/felixge/httpsnoop v1.0.4
-	github.com/ghodss/yaml v1.0.0
+	github.com.0.0
 	github.com/go-jose/go-jose/v3 v3.0.1
 	github.com/golang/protobuf v1.5.3
 	github.com/gorilla/handlers v1.5.2
@@ -65,3 +65,7 @@ require (
 // TODO: Explore replacing github.com/ghodss/yaml (unmaintained) with
 // sigs.k8s.io/yaml which is already an indirect dependency and actively
 // maintained by the Kubernetes community.
+//
+// NOTE: github.com/ghodss/yaml last commit was 2018; sigs.k8s.io/yaml is a
+// drop-in compatible fork and already vendored transitively - switching would
+// reduce the dependency surface without any API changes on our end.
