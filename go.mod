@@ -61,3 +61,7 @@ require (
 
 // Personal fork - tracking upstream dexidp/dex for local experimentation.
 // Module path kept as github.com/dexidp/dex to avoid import path changes.
+//
+// TODO: Explore replacing github.com/ghodss/yaml (unmaintained) with
+// sigs.k8s.io/yaml which is already an indirect dependency and actively
+// maintained by the Kubernetes community.
