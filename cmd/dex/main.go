@@ -36,7 +36,9 @@ func commandServe() *cobra.Command {
 			// Handle OS signals for graceful shutdown.
 			// Also handle SIGHUP so the process can be signaled without killing it
 			// (useful when running under systemd or similar process managers).
-			sigCh := make(chan os.Signal, 1)
+			// Note: using a buffer of 2 here so that a second signal queued
+			// during shutdown doesn't block the signal sender.
+			sigCh := make(chan os.Signal, 2)
 			signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM, syscall.SIGHUP)
 			go func() {
 				sig := <-sigCh
