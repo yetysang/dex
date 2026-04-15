@@ -5,7 +5,6 @@ go 1.21
 require (
 	github.com/coreos/go-oidc/v3 v3.9.0
 	github.com/felixge/httpsnoop v1.0.4
-	github.com.0.0
 	github.com/go-jose/go-jose/v3 v3.0.1
 	github.com/golang/protobuf v1.5.3
 	github.com/gorilla/handlers v1.5.2
@@ -69,3 +68,7 @@ require (
 // NOTE: github.com/ghodss/yaml last commit was 2018; sigs.k8s.io/yaml is a
 // drop-in compatible fork and already vendored transitively - switching would
 // reduce the dependency surface without any API changes on our end.
+//
+// FIXME: Removed stray malformed entry "github.com.0.0" from the require
+// block above - it was likely a copy-paste artifact and would break
+// `go mod tidy` / any build that tries to resolve it.
