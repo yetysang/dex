@@ -44,6 +44,10 @@ func commandServe() *cobra.Command {
 				sig := <-sigCh
 				fmt.Fprintf(os.Stderr, "received signal: %s, shutting down...\n", sig)
 				cancel()
+				// Wait for a second signal to force exit immediately.
+				<-sigCh
+				fmt.Fprintln(os.Stderr, "second signal received, forcing exit")
+				os.Exit(1)
 			}()
 
 			configFile := args[0]
