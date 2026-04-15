@@ -72,3 +72,7 @@ require (
 // FIXME: Removed stray malformed entry "github.com.0.0" from the require
 // block above - it was likely a copy-paste artifact and would break
 // `go mod tidy` / any build that tries to resolve it.
+//
+// NOTE: go-sqlite3 requires CGO_ENABLED=1 at build time. When building locally
+// remember to set: CGO_ENABLED=1 go build ./...
+// For Docker builds the provided Dockerfile already handles this correctly.
