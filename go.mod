@@ -74,5 +74,5 @@ require (
 // `go mod tidy` / any build that tries to resolve it.
 //
 // NOTE: go-sqlite3 requires CGO_ENABLED=1 at build time. When building locally
-// remember to set: CGO_ENABLED=1 go build ./...
-// For Docker builds the provided Dockerfile already handles this correctly.
+// without CGO (e.g. for quick iteration), use the `nosqlite` build tag or
+// switch the storage backend to postgres in the config file.
