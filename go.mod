@@ -73,6 +73,6 @@ require (
 // block above - it was likely a copy-paste artifact and would break
 // `go mod tidy` / any build that tries to resolve it.
 //
-// NOTE: go-sqlite3 requires CGO_ENABLED=1 at build time. When building locally
-// without CGO (e.g. for quick iteration), use the `nosqlite` build tag or
-// switch the storage backend to postgres in the config file.
+// NOTE: go-sqlite3 requires CGO_ENABLED=1 at build time. When building
+// locally without CGO (e.g. for quick iteration), use the 'pgonly' build
+// tag to skip sqlite3 and rely solely on the postgres connector instead.
